@@ -1,0 +1,4595 @@
+{
+  "openapi": "3.0.0",
+  "info": {
+    "title": "Maintenance Bill of Material",
+    "version": "1 ",
+    "description": "\r\n\r\nThis service enables you to create, update, or delete the bill of material header and item. It is based on the OData protocol and can be consumed in SAP Fiori apps and on other user interfaces. The service contains header and item nodes for the bill of material. When performing an operation, the necessary information is sent in the request as a payload. All information used when creating a maintenance BOM is checked for restricted values and authorizations.\r\n"
+  },
+  "externalDocs": {
+    "description": "Business Documentation",
+    "url": "https://help.sap.com/http.svc/ahp2/SAP_S4HANA_ON-PREMISE/2021.000/EN/21/317859a54d477b89e43e4501249157/frameset.htm"
+  },
+  "x-sap-api-type": "ODATA",
+  "x-sap-shortText": "Create, update and delete the Maintenance Bill of Material using the asynchronous inbound service",
+  "x-sap-api-deprecated": "No",
+  "x-sap-software-min-version": "2021",
+  "x-sap-ext-overview": [
+    {
+      "name": "Authentication Methods",
+      "values": [
+        {
+          "text": "Basic, x509",
+          "format": "plain"
+        }
+      ]
+    },
+    {
+      "name": "Business Object",
+      "values": [
+        {
+          "text": "Bill Of Material",
+          "format": "plain"
+        }
+      ]
+    }
+  ],
+  "x-sap-stateInfo": {
+    "state": "active"
+  },
+  "security": [
+    {
+      "basicAuthentication": []
+    }
+  ],
+  "servers": [
+    {
+      "url": "https://{host}:{port}/sap/opu/odata/sap/API_MAINTENANCEBOM",
+      "variables": {
+        "host": {
+          "default": ""
+        },
+        "port": {
+          "default": ""
+        }
+      }
+    }
+  ],
+  "tags": [
+    {
+      "name": "Maintenance Bill Of Material Item"
+    },
+    {
+      "name": "Maintenance Bill Of Material"
+    }
+  ],
+  "paths": {
+    "/BOMItem": {
+      "get": {
+        "summary": "Get entities from BOMItem",
+        "tags": [
+          "Maintenance Bill Of Material Item"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterial desc",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialCategory desc",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVariant desc",
+                  "BillOfMaterialVersion",
+                  "BillOfMaterialVersion desc",
+                  "TechnicalObject",
+                  "TechnicalObject desc",
+                  "Plant",
+                  "Plant desc",
+                  "EngineeringChangeDocument",
+                  "EngineeringChangeDocument desc",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialVariantUsage desc",
+                  "BillOfMaterialItemNodeNumber",
+                  "BillOfMaterialItemNodeNumber desc",
+                  "BillOfMaterialItemUUID",
+                  "BillOfMaterialItemUUID desc",
+                  "BOMItemInternalChangeCount",
+                  "BOMItemInternalChangeCount desc",
+                  "ValidityStartDate",
+                  "ValidityStartDate desc",
+                  "ValidityEndDate",
+                  "ValidityEndDate desc",
+                  "ChgToEngineeringChgDocument",
+                  "ChgToEngineeringChgDocument desc",
+                  "InheritedNodeNumberForBOMItem",
+                  "InheritedNodeNumberForBOMItem desc",
+                  "BOMItemRecordCreationDate",
+                  "BOMItemRecordCreationDate desc",
+                  "BOMItemCreatedByUser",
+                  "BOMItemCreatedByUser desc",
+                  "BOMItemLastChangeDate",
+                  "BOMItemLastChangeDate desc",
+                  "BOMItemLastChangedByUser",
+                  "BOMItemLastChangedByUser desc",
+                  "BillOfMaterialComponent",
+                  "BillOfMaterialComponent desc",
+                  "BillOfMaterialItemCategory",
+                  "BillOfMaterialItemCategory desc",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialItemNumber desc",
+                  "BillOfMaterialItemUnit",
+                  "BillOfMaterialItemUnit desc",
+                  "BillOfMaterialItemQuantity",
+                  "BillOfMaterialItemQuantity desc",
+                  "IsAssembly",
+                  "IsAssembly desc",
+                  "IsSubItem",
+                  "IsSubItem desc",
+                  "BOMItemSorter",
+                  "BOMItemSorter desc",
+                  "PurchasingGroup",
+                  "PurchasingGroup desc",
+                  "Currency",
+                  "Currency desc",
+                  "MaterialComponentPrice",
+                  "MaterialComponentPrice desc",
+                  "IdentifierBOMItem",
+                  "IdentifierBOMItem desc",
+                  "MaterialPriceUnitQty",
+                  "MaterialPriceUnitQty desc",
+                  "ComponentScrapInPercent",
+                  "ComponentScrapInPercent desc",
+                  "OperationScrapInPercent",
+                  "OperationScrapInPercent desc",
+                  "IsNetScrap",
+                  "IsNetScrap desc",
+                  "QuantityVariableSizeItem",
+                  "QuantityVariableSizeItem desc",
+                  "FormulaKey",
+                  "FormulaKey desc",
+                  "ComponentDescription",
+                  "ComponentDescription desc",
+                  "BOMItemDescription",
+                  "BOMItemDescription desc",
+                  "BOMItemText2",
+                  "BOMItemText2 desc",
+                  "MaterialGroup",
+                  "MaterialGroup desc",
+                  "DocumentType",
+                  "DocumentType desc",
+                  "DocNumber",
+                  "DocNumber desc",
+                  "DocumentVersion",
+                  "DocumentVersion desc",
+                  "DocumentPart",
+                  "DocumentPart desc",
+                  "ClassNumber",
+                  "ClassNumber desc",
+                  "ClassType",
+                  "ClassType desc",
+                  "ResultingItemCategory",
+                  "ResultingItemCategory desc",
+                  "DependencyObjectNumber",
+                  "DependencyObjectNumber desc",
+                  "ObjectType",
+                  "ObjectType desc",
+                  "IsClassificationRelevant",
+                  "IsClassificationRelevant desc",
+                  "IsBulkMaterial",
+                  "IsBulkMaterial desc",
+                  "BOMItemIsSparePart",
+                  "BOMItemIsSparePart desc",
+                  "BOMItemIsSalesRelevant",
+                  "BOMItemIsSalesRelevant desc",
+                  "IsProductionRelevant",
+                  "IsProductionRelevant desc",
+                  "BOMItemIsPlantMaintRelevant",
+                  "BOMItemIsPlantMaintRelevant desc",
+                  "BOMItemIsCostingRelevant",
+                  "BOMItemIsCostingRelevant desc",
+                  "IsEngineeringRelevant",
+                  "IsEngineeringRelevant desc",
+                  "SpecialProcurementType",
+                  "SpecialProcurementType desc",
+                  "IsBOMRecursiveAllowed",
+                  "IsBOMRecursiveAllowed desc",
+                  "OperationLeadTimeOffset",
+                  "OperationLeadTimeOffset desc",
+                  "OpsLeadTimeOffsetUnit",
+                  "OpsLeadTimeOffsetUnit desc",
+                  "IsMaterialProvision",
+                  "IsMaterialProvision desc",
+                  "BOMIsRecursive",
+                  "BOMIsRecursive desc",
+                  "DocumentIsCreatedByCAD",
+                  "DocumentIsCreatedByCAD desc",
+                  "DistrKeyCompConsumption",
+                  "DistrKeyCompConsumption desc",
+                  "DeliveryDurationInDays",
+                  "DeliveryDurationInDays desc",
+                  "Creditor",
+                  "Creditor desc",
+                  "CostElement",
+                  "CostElement desc",
+                  "Size1",
+                  "Size1 desc",
+                  "Size2",
+                  "Size2 desc",
+                  "Size3",
+                  "Size3 desc",
+                  "UnitOfMeasureForSize1To3",
+                  "UnitOfMeasureForSize1To3 desc",
+                  "GoodsReceiptDuration",
+                  "GoodsReceiptDuration desc",
+                  "PurchasingOrganization",
+                  "PurchasingOrganization desc",
+                  "RequiredComponent",
+                  "RequiredComponent desc",
+                  "MultipleSelectionAllowed",
+                  "MultipleSelectionAllowed desc",
+                  "ProdOrderIssueLocation",
+                  "ProdOrderIssueLocation desc",
+                  "MaterialIsCoProduct",
+                  "MaterialIsCoProduct desc",
+                  "ExplosionType",
+                  "ExplosionType desc",
+                  "AlternativeItemGroup",
+                  "AlternativeItemGroup desc",
+                  "FollowUpGroup",
+                  "FollowUpGroup desc",
+                  "DiscontinuationGroup",
+                  "DiscontinuationGroup desc",
+                  "IsConfigurableBOM",
+                  "IsConfigurableBOM desc",
+                  "ReferencePoint",
+                  "ReferencePoint desc",
+                  "LeadTimeOffset",
+                  "LeadTimeOffset desc",
+                  "ProductionSupplyArea",
+                  "ProductionSupplyArea desc",
+                  "IsDeleted",
+                  "IsDeleted desc",
+                  "IsALE",
+                  "IsALE desc",
+                  "BillOfMaterialHeaderUUID",
+                  "BillOfMaterialHeaderUUID desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVersion",
+                  "TechnicalObject",
+                  "Plant",
+                  "EngineeringChangeDocument",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialItemNodeNumber",
+                  "BillOfMaterialItemUUID",
+                  "BOMItemInternalChangeCount",
+                  "ValidityStartDate",
+                  "ValidityEndDate",
+                  "ChgToEngineeringChgDocument",
+                  "InheritedNodeNumberForBOMItem",
+                  "BOMItemRecordCreationDate",
+                  "BOMItemCreatedByUser",
+                  "BOMItemLastChangeDate",
+                  "BOMItemLastChangedByUser",
+                  "BillOfMaterialComponent",
+                  "BillOfMaterialItemCategory",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialItemUnit",
+                  "BillOfMaterialItemQuantity",
+                  "IsAssembly",
+                  "IsSubItem",
+                  "BOMItemSorter",
+                  "PurchasingGroup",
+                  "Currency",
+                  "MaterialComponentPrice",
+                  "IdentifierBOMItem",
+                  "MaterialPriceUnitQty",
+                  "ComponentScrapInPercent",
+                  "OperationScrapInPercent",
+                  "IsNetScrap",
+                  "QuantityVariableSizeItem",
+                  "FormulaKey",
+                  "ComponentDescription",
+                  "BOMItemDescription",
+                  "BOMItemText2",
+                  "MaterialGroup",
+                  "DocumentType",
+                  "DocNumber",
+                  "DocumentVersion",
+                  "DocumentPart",
+                  "ClassNumber",
+                  "ClassType",
+                  "ResultingItemCategory",
+                  "DependencyObjectNumber",
+                  "ObjectType",
+                  "IsClassificationRelevant",
+                  "IsBulkMaterial",
+                  "BOMItemIsSparePart",
+                  "BOMItemIsSalesRelevant",
+                  "IsProductionRelevant",
+                  "BOMItemIsPlantMaintRelevant",
+                  "BOMItemIsCostingRelevant",
+                  "IsEngineeringRelevant",
+                  "SpecialProcurementType",
+                  "IsBOMRecursiveAllowed",
+                  "OperationLeadTimeOffset",
+                  "OpsLeadTimeOffsetUnit",
+                  "IsMaterialProvision",
+                  "BOMIsRecursive",
+                  "DocumentIsCreatedByCAD",
+                  "DistrKeyCompConsumption",
+                  "DeliveryDurationInDays",
+                  "Creditor",
+                  "CostElement",
+                  "Size1",
+                  "Size2",
+                  "Size3",
+                  "UnitOfMeasureForSize1To3",
+                  "GoodsReceiptDuration",
+                  "PurchasingOrganization",
+                  "RequiredComponent",
+                  "MultipleSelectionAllowed",
+                  "ProdOrderIssueLocation",
+                  "MaterialIsCoProduct",
+                  "ExplosionType",
+                  "AlternativeItemGroup",
+                  "FollowUpGroup",
+                  "DiscontinuationGroup",
+                  "IsConfigurableBOM",
+                  "ReferencePoint",
+                  "LeadTimeOffset",
+                  "ProductionSupplyArea",
+                  "IsDeleted",
+                  "IsALE",
+                  "BillOfMaterialHeaderUUID",
+                  "to_BillOfMaterial"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "to_BillOfMaterial"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Wrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "Collection of BOMItemType",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new entity to BOMItem",
+        "tags": [
+          "Maintenance Bill Of Material Item"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType-create"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "BOMItemType",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/BOMItem(BillOfMaterial='{BillOfMaterial}',BillOfMaterialCategory='{BillOfMaterialCategory}',BillOfMaterialVariant='{BillOfMaterialVariant}',BillOfMaterialVersion='{BillOfMaterialVersion}',TechnicalObject='{TechnicalObject}',Plant='{Plant}',EngineeringChangeDocument='{EngineeringChangeDocument}',BillOfMaterialVariantUsage='{BillOfMaterialVariantUsage}',BillOfMaterialItemNodeNumber='{BillOfMaterialItemNodeNumber}')": {
+      "parameters": [
+        {
+          "name": "BillOfMaterial",
+          "in": "path",
+          "required": true,
+          "description": "key: BillOfMaterial",
+          "schema": {
+            "type": "string",
+            "maxLength": 8
+          }
+        },
+        {
+          "name": "BillOfMaterialCategory",
+          "in": "path",
+          "required": true,
+          "description": "BOM category",
+          "schema": {
+            "type": "string",
+            "maxLength": 1
+          }
+        },
+        {
+          "name": "BillOfMaterialVariant",
+          "in": "path",
+          "required": true,
+          "description": "Alternative BOM",
+          "schema": {
+            "type": "string",
+            "maxLength": 2
+          }
+        },
+        {
+          "name": "BillOfMaterialVersion",
+          "in": "path",
+          "required": true,
+          "description": "BOM Version",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        {
+          "name": "TechnicalObject",
+          "in": "path",
+          "required": true,
+          "description": "Material Number",
+          "schema": {
+            "type": "string",
+            "maxLength": 40
+          }
+        },
+        {
+          "name": "Plant",
+          "in": "path",
+          "required": true,
+          "description": "Plant",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        {
+          "name": "EngineeringChangeDocument",
+          "in": "path",
+          "required": true,
+          "description": "Change Number",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        },
+        {
+          "name": "BillOfMaterialVariantUsage",
+          "in": "path",
+          "required": true,
+          "description": "BOM Usage",
+          "schema": {
+            "type": "string",
+            "maxLength": 1
+          }
+        },
+        {
+          "name": "BillOfMaterialItemNodeNumber",
+          "in": "path",
+          "required": true,
+          "description": "BOM item node number",
+          "schema": {
+            "type": "string",
+            "maxLength": 8
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from BOMItem by key",
+        "tags": [
+          "Maintenance Bill Of Material Item"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVersion",
+                  "TechnicalObject",
+                  "Plant",
+                  "EngineeringChangeDocument",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialItemNodeNumber",
+                  "BillOfMaterialItemUUID",
+                  "BOMItemInternalChangeCount",
+                  "ValidityStartDate",
+                  "ValidityEndDate",
+                  "ChgToEngineeringChgDocument",
+                  "InheritedNodeNumberForBOMItem",
+                  "BOMItemRecordCreationDate",
+                  "BOMItemCreatedByUser",
+                  "BOMItemLastChangeDate",
+                  "BOMItemLastChangedByUser",
+                  "BillOfMaterialComponent",
+                  "BillOfMaterialItemCategory",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialItemUnit",
+                  "BillOfMaterialItemQuantity",
+                  "IsAssembly",
+                  "IsSubItem",
+                  "BOMItemSorter",
+                  "PurchasingGroup",
+                  "Currency",
+                  "MaterialComponentPrice",
+                  "IdentifierBOMItem",
+                  "MaterialPriceUnitQty",
+                  "ComponentScrapInPercent",
+                  "OperationScrapInPercent",
+                  "IsNetScrap",
+                  "QuantityVariableSizeItem",
+                  "FormulaKey",
+                  "ComponentDescription",
+                  "BOMItemDescription",
+                  "BOMItemText2",
+                  "MaterialGroup",
+                  "DocumentType",
+                  "DocNumber",
+                  "DocumentVersion",
+                  "DocumentPart",
+                  "ClassNumber",
+                  "ClassType",
+                  "ResultingItemCategory",
+                  "DependencyObjectNumber",
+                  "ObjectType",
+                  "IsClassificationRelevant",
+                  "IsBulkMaterial",
+                  "BOMItemIsSparePart",
+                  "BOMItemIsSalesRelevant",
+                  "IsProductionRelevant",
+                  "BOMItemIsPlantMaintRelevant",
+                  "BOMItemIsCostingRelevant",
+                  "IsEngineeringRelevant",
+                  "SpecialProcurementType",
+                  "IsBOMRecursiveAllowed",
+                  "OperationLeadTimeOffset",
+                  "OpsLeadTimeOffsetUnit",
+                  "IsMaterialProvision",
+                  "BOMIsRecursive",
+                  "DocumentIsCreatedByCAD",
+                  "DistrKeyCompConsumption",
+                  "DeliveryDurationInDays",
+                  "Creditor",
+                  "CostElement",
+                  "Size1",
+                  "Size2",
+                  "Size3",
+                  "UnitOfMeasureForSize1To3",
+                  "GoodsReceiptDuration",
+                  "PurchasingOrganization",
+                  "RequiredComponent",
+                  "MultipleSelectionAllowed",
+                  "ProdOrderIssueLocation",
+                  "MaterialIsCoProduct",
+                  "ExplosionType",
+                  "AlternativeItemGroup",
+                  "FollowUpGroup",
+                  "DiscontinuationGroup",
+                  "IsConfigurableBOM",
+                  "ReferencePoint",
+                  "LeadTimeOffset",
+                  "ProductionSupplyArea",
+                  "IsDeleted",
+                  "IsALE",
+                  "BillOfMaterialHeaderUUID",
+                  "to_BillOfMaterial"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "to_BillOfMaterial"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "BOMItemType",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update entity in BOMItem",
+        "tags": [
+          "Maintenance Bill Of Material Item"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New property values",
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Modified BOMItemType",
+                "type": "object",
+                "properties": {
+                  "d": {
+                    "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType-update"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete entity from BOMItem",
+        "tags": [
+          "Maintenance Bill Of Material Item"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/BOMItem(BillOfMaterial='{BillOfMaterial}',BillOfMaterialCategory='{BillOfMaterialCategory}',BillOfMaterialVariant='{BillOfMaterialVariant}',BillOfMaterialVersion='{BillOfMaterialVersion}',TechnicalObject='{TechnicalObject}',Plant='{Plant}',EngineeringChangeDocument='{EngineeringChangeDocument}',BillOfMaterialVariantUsage='{BillOfMaterialVariantUsage}',BillOfMaterialItemNodeNumber='{BillOfMaterialItemNodeNumber}')/to_BillOfMaterial": {
+      "parameters": [
+        {
+          "name": "BillOfMaterial",
+          "in": "path",
+          "required": true,
+          "description": "key: BillOfMaterial",
+          "schema": {
+            "type": "string",
+            "maxLength": 8
+          }
+        },
+        {
+          "name": "BillOfMaterialCategory",
+          "in": "path",
+          "required": true,
+          "description": "BOM category",
+          "schema": {
+            "type": "string",
+            "maxLength": 1
+          }
+        },
+        {
+          "name": "BillOfMaterialVariant",
+          "in": "path",
+          "required": true,
+          "description": "Alternative BOM",
+          "schema": {
+            "type": "string",
+            "maxLength": 2
+          }
+        },
+        {
+          "name": "BillOfMaterialVersion",
+          "in": "path",
+          "required": true,
+          "description": "BOM Version",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        {
+          "name": "TechnicalObject",
+          "in": "path",
+          "required": true,
+          "description": "Material Number",
+          "schema": {
+            "type": "string",
+            "maxLength": 40
+          }
+        },
+        {
+          "name": "Plant",
+          "in": "path",
+          "required": true,
+          "description": "Plant",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        {
+          "name": "EngineeringChangeDocument",
+          "in": "path",
+          "required": true,
+          "description": "Change Number",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        },
+        {
+          "name": "BillOfMaterialVariantUsage",
+          "in": "path",
+          "required": true,
+          "description": "BOM Usage",
+          "schema": {
+            "type": "string",
+            "maxLength": 1
+          }
+        },
+        {
+          "name": "BillOfMaterialItemNodeNumber",
+          "in": "path",
+          "required": true,
+          "description": "BOM item node number",
+          "schema": {
+            "type": "string",
+            "maxLength": 8
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get related to_BillOfMaterial",
+        "tags": [
+          "Maintenance Bill Of Material Item",
+          "Maintenance Bill Of Material"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVersion",
+                  "TechnicalObject",
+                  "Plant",
+                  "EngineeringChangeDocument",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialHeaderUUID",
+                  "IsMultipleBOMAlt",
+                  "BOMHeaderInternalChangeCount",
+                  "BOMUsagePriority",
+                  "BillOfMaterialAuthsnGrp",
+                  "BOMVersionStatus",
+                  "IsVersionBillOfMaterial",
+                  "IsLatestBOMVersion",
+                  "IsConfiguredMaterial",
+                  "BOMTechnicalType",
+                  "BOMGroup",
+                  "BOMHeaderText",
+                  "BOMAlternativeText",
+                  "BillOfMaterialStatus",
+                  "HeaderValidityStartDate",
+                  "HeaderValidityEndDate",
+                  "ChgToEngineeringChgDocument",
+                  "IsMarkedForDeletion",
+                  "IsALE",
+                  "BOMHeaderBaseUnit",
+                  "BOMHeaderQuantityInBaseUnit",
+                  "RecordCreationDate",
+                  "LastChangeDate",
+                  "CreatedByUser",
+                  "LastChangedByUser",
+                  "BOMIsToBeDeleted",
+                  "DocumentIsCreatedByCAD",
+                  "LaboratoryOrDesignOffice",
+                  "SelectedBillOfMaterialVersion",
+                  "to_MaintBillOfMaterialItem"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "to_MaintBillOfMaterialItem"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MaintBOMHeader_Type",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/cds_api_maintenancebom.MaintBOMHeader_Type"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/BOMHeader": {
+      "get": {
+        "summary": "Get entities from BOMHeader",
+        "tags": [
+          "Maintenance Bill Of Material"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterial desc",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialCategory desc",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVariant desc",
+                  "BillOfMaterialVersion",
+                  "BillOfMaterialVersion desc",
+                  "TechnicalObject",
+                  "TechnicalObject desc",
+                  "Plant",
+                  "Plant desc",
+                  "EngineeringChangeDocument",
+                  "EngineeringChangeDocument desc",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialVariantUsage desc",
+                  "BillOfMaterialHeaderUUID",
+                  "BillOfMaterialHeaderUUID desc",
+                  "IsMultipleBOMAlt",
+                  "IsMultipleBOMAlt desc",
+                  "BOMHeaderInternalChangeCount",
+                  "BOMHeaderInternalChangeCount desc",
+                  "BOMUsagePriority",
+                  "BOMUsagePriority desc",
+                  "BillOfMaterialAuthsnGrp",
+                  "BillOfMaterialAuthsnGrp desc",
+                  "BOMVersionStatus",
+                  "BOMVersionStatus desc",
+                  "IsVersionBillOfMaterial",
+                  "IsVersionBillOfMaterial desc",
+                  "IsLatestBOMVersion",
+                  "IsLatestBOMVersion desc",
+                  "IsConfiguredMaterial",
+                  "IsConfiguredMaterial desc",
+                  "BOMTechnicalType",
+                  "BOMTechnicalType desc",
+                  "BOMGroup",
+                  "BOMGroup desc",
+                  "BOMHeaderText",
+                  "BOMHeaderText desc",
+                  "BOMAlternativeText",
+                  "BOMAlternativeText desc",
+                  "BillOfMaterialStatus",
+                  "BillOfMaterialStatus desc",
+                  "HeaderValidityStartDate",
+                  "HeaderValidityStartDate desc",
+                  "HeaderValidityEndDate",
+                  "HeaderValidityEndDate desc",
+                  "ChgToEngineeringChgDocument",
+                  "ChgToEngineeringChgDocument desc",
+                  "IsMarkedForDeletion",
+                  "IsMarkedForDeletion desc",
+                  "IsALE",
+                  "IsALE desc",
+                  "BOMHeaderBaseUnit",
+                  "BOMHeaderBaseUnit desc",
+                  "BOMHeaderQuantityInBaseUnit",
+                  "BOMHeaderQuantityInBaseUnit desc",
+                  "RecordCreationDate",
+                  "RecordCreationDate desc",
+                  "LastChangeDate",
+                  "LastChangeDate desc",
+                  "CreatedByUser",
+                  "CreatedByUser desc",
+                  "LastChangedByUser",
+                  "LastChangedByUser desc",
+                  "BOMIsToBeDeleted",
+                  "BOMIsToBeDeleted desc",
+                  "DocumentIsCreatedByCAD",
+                  "DocumentIsCreatedByCAD desc",
+                  "LaboratoryOrDesignOffice",
+                  "LaboratoryOrDesignOffice desc",
+                  "SelectedBillOfMaterialVersion",
+                  "SelectedBillOfMaterialVersion desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVersion",
+                  "TechnicalObject",
+                  "Plant",
+                  "EngineeringChangeDocument",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialHeaderUUID",
+                  "IsMultipleBOMAlt",
+                  "BOMHeaderInternalChangeCount",
+                  "BOMUsagePriority",
+                  "BillOfMaterialAuthsnGrp",
+                  "BOMVersionStatus",
+                  "IsVersionBillOfMaterial",
+                  "IsLatestBOMVersion",
+                  "IsConfiguredMaterial",
+                  "BOMTechnicalType",
+                  "BOMGroup",
+                  "BOMHeaderText",
+                  "BOMAlternativeText",
+                  "BillOfMaterialStatus",
+                  "HeaderValidityStartDate",
+                  "HeaderValidityEndDate",
+                  "ChgToEngineeringChgDocument",
+                  "IsMarkedForDeletion",
+                  "IsALE",
+                  "BOMHeaderBaseUnit",
+                  "BOMHeaderQuantityInBaseUnit",
+                  "RecordCreationDate",
+                  "LastChangeDate",
+                  "CreatedByUser",
+                  "LastChangedByUser",
+                  "BOMIsToBeDeleted",
+                  "DocumentIsCreatedByCAD",
+                  "LaboratoryOrDesignOffice",
+                  "SelectedBillOfMaterialVersion",
+                  "to_MaintBillOfMaterialItem"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "to_MaintBillOfMaterialItem"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Wrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "Collection of MaintBOMHeader_Type",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/cds_api_maintenancebom.MaintBOMHeader_Type"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new entity to BOMHeader",
+        "tags": [
+          "Maintenance Bill Of Material"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cds_api_maintenancebom.MaintBOMHeader_Type-create"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MaintBOMHeader_Type",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/cds_api_maintenancebom.MaintBOMHeader_Type"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/BOMHeader(BillOfMaterial='{BillOfMaterial}',BillOfMaterialCategory='{BillOfMaterialCategory}',BillOfMaterialVariant='{BillOfMaterialVariant}',BillOfMaterialVersion='{BillOfMaterialVersion}',TechnicalObject='{TechnicalObject}',Plant='{Plant}',EngineeringChangeDocument='{EngineeringChangeDocument}',BillOfMaterialVariantUsage='{BillOfMaterialVariantUsage}')": {
+      "parameters": [
+        {
+          "name": "BillOfMaterial",
+          "in": "path",
+          "required": true,
+          "description": "key: BillOfMaterial",
+          "schema": {
+            "type": "string",
+            "maxLength": 8
+          }
+        },
+        {
+          "name": "BillOfMaterialCategory",
+          "in": "path",
+          "required": true,
+          "description": "BOM category",
+          "schema": {
+            "type": "string",
+            "maxLength": 1
+          }
+        },
+        {
+          "name": "BillOfMaterialVariant",
+          "in": "path",
+          "required": true,
+          "description": "Alternative BOM",
+          "schema": {
+            "type": "string",
+            "maxLength": 2
+          }
+        },
+        {
+          "name": "BillOfMaterialVersion",
+          "in": "path",
+          "required": true,
+          "description": "BOM Version",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        {
+          "name": "TechnicalObject",
+          "in": "path",
+          "required": true,
+          "description": "Material Number",
+          "schema": {
+            "type": "string",
+            "maxLength": 40
+          }
+        },
+        {
+          "name": "Plant",
+          "in": "path",
+          "required": true,
+          "description": "Plant",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        {
+          "name": "EngineeringChangeDocument",
+          "in": "path",
+          "required": true,
+          "description": "Change Number",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        },
+        {
+          "name": "BillOfMaterialVariantUsage",
+          "in": "path",
+          "required": true,
+          "description": "BOM Usage",
+          "schema": {
+            "type": "string",
+            "maxLength": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entity from BOMHeader by key",
+        "tags": [
+          "Maintenance Bill Of Material"
+        ],
+        "parameters": [
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVersion",
+                  "TechnicalObject",
+                  "Plant",
+                  "EngineeringChangeDocument",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialHeaderUUID",
+                  "IsMultipleBOMAlt",
+                  "BOMHeaderInternalChangeCount",
+                  "BOMUsagePriority",
+                  "BillOfMaterialAuthsnGrp",
+                  "BOMVersionStatus",
+                  "IsVersionBillOfMaterial",
+                  "IsLatestBOMVersion",
+                  "IsConfiguredMaterial",
+                  "BOMTechnicalType",
+                  "BOMGroup",
+                  "BOMHeaderText",
+                  "BOMAlternativeText",
+                  "BillOfMaterialStatus",
+                  "HeaderValidityStartDate",
+                  "HeaderValidityEndDate",
+                  "ChgToEngineeringChgDocument",
+                  "IsMarkedForDeletion",
+                  "IsALE",
+                  "BOMHeaderBaseUnit",
+                  "BOMHeaderQuantityInBaseUnit",
+                  "RecordCreationDate",
+                  "LastChangeDate",
+                  "CreatedByUser",
+                  "LastChangedByUser",
+                  "BOMIsToBeDeleted",
+                  "DocumentIsCreatedByCAD",
+                  "LaboratoryOrDesignOffice",
+                  "SelectedBillOfMaterialVersion",
+                  "to_MaintBillOfMaterialItem"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "to_MaintBillOfMaterialItem"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "MaintBOMHeader_Type",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/cds_api_maintenancebom.MaintBOMHeader_Type"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "patch": {
+        "summary": "Update entity in BOMHeader",
+        "tags": [
+          "Maintenance Bill Of Material"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New property values",
+          "content": {
+            "application/json": {
+              "schema": {
+                "title": "Modified MaintBOMHeader_Type",
+                "type": "object",
+                "properties": {
+                  "d": {
+                    "$ref": "#/components/schemas/cds_api_maintenancebom.MaintBOMHeader_Type-update"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "delete": {
+        "summary": "Delete entity from BOMHeader",
+        "tags": [
+          "Maintenance Bill Of Material"
+        ],
+        "responses": {
+          "204": {
+            "description": "Success"
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/BOMHeader(BillOfMaterial='{BillOfMaterial}',BillOfMaterialCategory='{BillOfMaterialCategory}',BillOfMaterialVariant='{BillOfMaterialVariant}',BillOfMaterialVersion='{BillOfMaterialVersion}',TechnicalObject='{TechnicalObject}',Plant='{Plant}',EngineeringChangeDocument='{EngineeringChangeDocument}',BillOfMaterialVariantUsage='{BillOfMaterialVariantUsage}')/to_MaintBillOfMaterialItem": {
+      "parameters": [
+        {
+          "name": "BillOfMaterial",
+          "in": "path",
+          "required": true,
+          "description": "key: BillOfMaterial",
+          "schema": {
+            "type": "string",
+            "maxLength": 8
+          }
+        },
+        {
+          "name": "BillOfMaterialCategory",
+          "in": "path",
+          "required": true,
+          "description": "BOM category",
+          "schema": {
+            "type": "string",
+            "maxLength": 1
+          }
+        },
+        {
+          "name": "BillOfMaterialVariant",
+          "in": "path",
+          "required": true,
+          "description": "Alternative BOM",
+          "schema": {
+            "type": "string",
+            "maxLength": 2
+          }
+        },
+        {
+          "name": "BillOfMaterialVersion",
+          "in": "path",
+          "required": true,
+          "description": "BOM Version",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        {
+          "name": "TechnicalObject",
+          "in": "path",
+          "required": true,
+          "description": "Material Number",
+          "schema": {
+            "type": "string",
+            "maxLength": 40
+          }
+        },
+        {
+          "name": "Plant",
+          "in": "path",
+          "required": true,
+          "description": "Plant",
+          "schema": {
+            "type": "string",
+            "maxLength": 4
+          }
+        },
+        {
+          "name": "EngineeringChangeDocument",
+          "in": "path",
+          "required": true,
+          "description": "Change Number",
+          "schema": {
+            "type": "string",
+            "maxLength": 12
+          }
+        },
+        {
+          "name": "BillOfMaterialVariantUsage",
+          "in": "path",
+          "required": true,
+          "description": "BOM Usage",
+          "schema": {
+            "type": "string",
+            "maxLength": 1
+          }
+        }
+      ],
+      "get": {
+        "summary": "Get entities from related to_MaintBillOfMaterialItem",
+        "tags": [
+          "Maintenance Bill Of Material",
+          "Maintenance Bill Of Material Item"
+        ],
+        "parameters": [
+          {
+            "$ref": "#/components/parameters/top"
+          },
+          {
+            "$ref": "#/components/parameters/skip"
+          },
+          {
+            "name": "$filter",
+            "in": "query",
+            "description": "Filter items by property values, see [Filtering](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=64)",
+            "schema": {
+              "type": "string"
+            }
+          },
+          {
+            "$ref": "#/components/parameters/count"
+          },
+          {
+            "name": "$orderby",
+            "in": "query",
+            "description": "Order items by property values, see [Sorting](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterial desc",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialCategory desc",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVariant desc",
+                  "BillOfMaterialVersion",
+                  "BillOfMaterialVersion desc",
+                  "TechnicalObject",
+                  "TechnicalObject desc",
+                  "Plant",
+                  "Plant desc",
+                  "EngineeringChangeDocument",
+                  "EngineeringChangeDocument desc",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialVariantUsage desc",
+                  "BillOfMaterialItemNodeNumber",
+                  "BillOfMaterialItemNodeNumber desc",
+                  "BillOfMaterialItemUUID",
+                  "BillOfMaterialItemUUID desc",
+                  "BOMItemInternalChangeCount",
+                  "BOMItemInternalChangeCount desc",
+                  "ValidityStartDate",
+                  "ValidityStartDate desc",
+                  "ValidityEndDate",
+                  "ValidityEndDate desc",
+                  "ChgToEngineeringChgDocument",
+                  "ChgToEngineeringChgDocument desc",
+                  "InheritedNodeNumberForBOMItem",
+                  "InheritedNodeNumberForBOMItem desc",
+                  "BOMItemRecordCreationDate",
+                  "BOMItemRecordCreationDate desc",
+                  "BOMItemCreatedByUser",
+                  "BOMItemCreatedByUser desc",
+                  "BOMItemLastChangeDate",
+                  "BOMItemLastChangeDate desc",
+                  "BOMItemLastChangedByUser",
+                  "BOMItemLastChangedByUser desc",
+                  "BillOfMaterialComponent",
+                  "BillOfMaterialComponent desc",
+                  "BillOfMaterialItemCategory",
+                  "BillOfMaterialItemCategory desc",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialItemNumber desc",
+                  "BillOfMaterialItemUnit",
+                  "BillOfMaterialItemUnit desc",
+                  "BillOfMaterialItemQuantity",
+                  "BillOfMaterialItemQuantity desc",
+                  "IsAssembly",
+                  "IsAssembly desc",
+                  "IsSubItem",
+                  "IsSubItem desc",
+                  "BOMItemSorter",
+                  "BOMItemSorter desc",
+                  "PurchasingGroup",
+                  "PurchasingGroup desc",
+                  "Currency",
+                  "Currency desc",
+                  "MaterialComponentPrice",
+                  "MaterialComponentPrice desc",
+                  "IdentifierBOMItem",
+                  "IdentifierBOMItem desc",
+                  "MaterialPriceUnitQty",
+                  "MaterialPriceUnitQty desc",
+                  "ComponentScrapInPercent",
+                  "ComponentScrapInPercent desc",
+                  "OperationScrapInPercent",
+                  "OperationScrapInPercent desc",
+                  "IsNetScrap",
+                  "IsNetScrap desc",
+                  "QuantityVariableSizeItem",
+                  "QuantityVariableSizeItem desc",
+                  "FormulaKey",
+                  "FormulaKey desc",
+                  "ComponentDescription",
+                  "ComponentDescription desc",
+                  "BOMItemDescription",
+                  "BOMItemDescription desc",
+                  "BOMItemText2",
+                  "BOMItemText2 desc",
+                  "MaterialGroup",
+                  "MaterialGroup desc",
+                  "DocumentType",
+                  "DocumentType desc",
+                  "DocNumber",
+                  "DocNumber desc",
+                  "DocumentVersion",
+                  "DocumentVersion desc",
+                  "DocumentPart",
+                  "DocumentPart desc",
+                  "ClassNumber",
+                  "ClassNumber desc",
+                  "ClassType",
+                  "ClassType desc",
+                  "ResultingItemCategory",
+                  "ResultingItemCategory desc",
+                  "DependencyObjectNumber",
+                  "DependencyObjectNumber desc",
+                  "ObjectType",
+                  "ObjectType desc",
+                  "IsClassificationRelevant",
+                  "IsClassificationRelevant desc",
+                  "IsBulkMaterial",
+                  "IsBulkMaterial desc",
+                  "BOMItemIsSparePart",
+                  "BOMItemIsSparePart desc",
+                  "BOMItemIsSalesRelevant",
+                  "BOMItemIsSalesRelevant desc",
+                  "IsProductionRelevant",
+                  "IsProductionRelevant desc",
+                  "BOMItemIsPlantMaintRelevant",
+                  "BOMItemIsPlantMaintRelevant desc",
+                  "BOMItemIsCostingRelevant",
+                  "BOMItemIsCostingRelevant desc",
+                  "IsEngineeringRelevant",
+                  "IsEngineeringRelevant desc",
+                  "SpecialProcurementType",
+                  "SpecialProcurementType desc",
+                  "IsBOMRecursiveAllowed",
+                  "IsBOMRecursiveAllowed desc",
+                  "OperationLeadTimeOffset",
+                  "OperationLeadTimeOffset desc",
+                  "OpsLeadTimeOffsetUnit",
+                  "OpsLeadTimeOffsetUnit desc",
+                  "IsMaterialProvision",
+                  "IsMaterialProvision desc",
+                  "BOMIsRecursive",
+                  "BOMIsRecursive desc",
+                  "DocumentIsCreatedByCAD",
+                  "DocumentIsCreatedByCAD desc",
+                  "DistrKeyCompConsumption",
+                  "DistrKeyCompConsumption desc",
+                  "DeliveryDurationInDays",
+                  "DeliveryDurationInDays desc",
+                  "Creditor",
+                  "Creditor desc",
+                  "CostElement",
+                  "CostElement desc",
+                  "Size1",
+                  "Size1 desc",
+                  "Size2",
+                  "Size2 desc",
+                  "Size3",
+                  "Size3 desc",
+                  "UnitOfMeasureForSize1To3",
+                  "UnitOfMeasureForSize1To3 desc",
+                  "GoodsReceiptDuration",
+                  "GoodsReceiptDuration desc",
+                  "PurchasingOrganization",
+                  "PurchasingOrganization desc",
+                  "RequiredComponent",
+                  "RequiredComponent desc",
+                  "MultipleSelectionAllowed",
+                  "MultipleSelectionAllowed desc",
+                  "ProdOrderIssueLocation",
+                  "ProdOrderIssueLocation desc",
+                  "MaterialIsCoProduct",
+                  "MaterialIsCoProduct desc",
+                  "ExplosionType",
+                  "ExplosionType desc",
+                  "AlternativeItemGroup",
+                  "AlternativeItemGroup desc",
+                  "FollowUpGroup",
+                  "FollowUpGroup desc",
+                  "DiscontinuationGroup",
+                  "DiscontinuationGroup desc",
+                  "IsConfigurableBOM",
+                  "IsConfigurableBOM desc",
+                  "ReferencePoint",
+                  "ReferencePoint desc",
+                  "LeadTimeOffset",
+                  "LeadTimeOffset desc",
+                  "ProductionSupplyArea",
+                  "ProductionSupplyArea desc",
+                  "IsDeleted",
+                  "IsDeleted desc",
+                  "IsALE",
+                  "IsALE desc",
+                  "BillOfMaterialHeaderUUID",
+                  "BillOfMaterialHeaderUUID desc"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$select",
+            "in": "query",
+            "description": "Select properties to be returned, see [Select](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=68)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "BillOfMaterial",
+                  "BillOfMaterialCategory",
+                  "BillOfMaterialVariant",
+                  "BillOfMaterialVersion",
+                  "TechnicalObject",
+                  "Plant",
+                  "EngineeringChangeDocument",
+                  "BillOfMaterialVariantUsage",
+                  "BillOfMaterialItemNodeNumber",
+                  "BillOfMaterialItemUUID",
+                  "BOMItemInternalChangeCount",
+                  "ValidityStartDate",
+                  "ValidityEndDate",
+                  "ChgToEngineeringChgDocument",
+                  "InheritedNodeNumberForBOMItem",
+                  "BOMItemRecordCreationDate",
+                  "BOMItemCreatedByUser",
+                  "BOMItemLastChangeDate",
+                  "BOMItemLastChangedByUser",
+                  "BillOfMaterialComponent",
+                  "BillOfMaterialItemCategory",
+                  "BillOfMaterialItemNumber",
+                  "BillOfMaterialItemUnit",
+                  "BillOfMaterialItemQuantity",
+                  "IsAssembly",
+                  "IsSubItem",
+                  "BOMItemSorter",
+                  "PurchasingGroup",
+                  "Currency",
+                  "MaterialComponentPrice",
+                  "IdentifierBOMItem",
+                  "MaterialPriceUnitQty",
+                  "ComponentScrapInPercent",
+                  "OperationScrapInPercent",
+                  "IsNetScrap",
+                  "QuantityVariableSizeItem",
+                  "FormulaKey",
+                  "ComponentDescription",
+                  "BOMItemDescription",
+                  "BOMItemText2",
+                  "MaterialGroup",
+                  "DocumentType",
+                  "DocNumber",
+                  "DocumentVersion",
+                  "DocumentPart",
+                  "ClassNumber",
+                  "ClassType",
+                  "ResultingItemCategory",
+                  "DependencyObjectNumber",
+                  "ObjectType",
+                  "IsClassificationRelevant",
+                  "IsBulkMaterial",
+                  "BOMItemIsSparePart",
+                  "BOMItemIsSalesRelevant",
+                  "IsProductionRelevant",
+                  "BOMItemIsPlantMaintRelevant",
+                  "BOMItemIsCostingRelevant",
+                  "IsEngineeringRelevant",
+                  "SpecialProcurementType",
+                  "IsBOMRecursiveAllowed",
+                  "OperationLeadTimeOffset",
+                  "OpsLeadTimeOffsetUnit",
+                  "IsMaterialProvision",
+                  "BOMIsRecursive",
+                  "DocumentIsCreatedByCAD",
+                  "DistrKeyCompConsumption",
+                  "DeliveryDurationInDays",
+                  "Creditor",
+                  "CostElement",
+                  "Size1",
+                  "Size2",
+                  "Size3",
+                  "UnitOfMeasureForSize1To3",
+                  "GoodsReceiptDuration",
+                  "PurchasingOrganization",
+                  "RequiredComponent",
+                  "MultipleSelectionAllowed",
+                  "ProdOrderIssueLocation",
+                  "MaterialIsCoProduct",
+                  "ExplosionType",
+                  "AlternativeItemGroup",
+                  "FollowUpGroup",
+                  "DiscontinuationGroup",
+                  "IsConfigurableBOM",
+                  "ReferencePoint",
+                  "LeadTimeOffset",
+                  "ProductionSupplyArea",
+                  "IsDeleted",
+                  "IsALE",
+                  "BillOfMaterialHeaderUUID",
+                  "to_BillOfMaterial"
+                ]
+              }
+            }
+          },
+          {
+            "name": "$expand",
+            "in": "query",
+            "description": "Expand related entities, see [Expand](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=63)",
+            "explode": false,
+            "schema": {
+              "type": "array",
+              "uniqueItems": true,
+              "items": {
+                "type": "string",
+                "enum": [
+                  "to_BillOfMaterial"
+                ]
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Retrieved entities",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "Wrapper",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "title": "Collection of BOMItemType",
+                      "type": "object",
+                      "properties": {
+                        "__count": {
+                          "$ref": "#/components/schemas/count"
+                        },
+                        "results": {
+                          "type": "array",
+                          "items": {
+                            "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType"
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      },
+      "post": {
+        "summary": "Add new entity to related to_MaintBillOfMaterialItem",
+        "tags": [
+          "Maintenance Bill Of Material",
+          "Maintenance Bill Of Material Item"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "New entity",
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType-create"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Created entity",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "title": "BOMItemType",
+                  "type": "object",
+                  "properties": {
+                    "d": {
+                      "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    },
+    "/$batch": {
+      "post": {
+        "summary": "Send a group of requests",
+        "description": "Group multiple requests into a single request payload, see [Batch Requests](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=152).\n\n*Please note that \"Try it out\" is not supported for this request.*",
+        "tags": [
+          "Batch Requests"
+        ],
+        "requestBody": {
+          "required": true,
+          "description": "Batch request",
+          "content": {
+            "multipart/mixed;boundary=request-separator": {
+              "schema": {
+                "type": "string"
+              },
+              "example": "--request-separator\nContent-Type: application/http\nContent-Transfer-Encoding: binary\n\nGET BOMItem HTTP/1.1\nAccept: application/json\n\n\n--request-separator--"
+            }
+          }
+        },
+        "responses": {
+          "202": {
+            "description": "Batch response",
+            "content": {
+              "multipart/mixed": {
+                "schema": {
+                  "type": "string"
+                },
+                "example": "--response-separator\nContent-Type: application/http\n\nHTTP/1.1 200 OK\nContent-Type: application/json\n\n{...}\n--response-separator--"
+              }
+            }
+          },
+          "4XX": {
+            "$ref": "#/components/responses/error"
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "basicAuthentication": {
+        "type": "http",
+        "scheme": "basic"
+      }
+    },
+    "schemas": {
+      "cds_api_maintenancebom.BOMItemType": {
+        "type": "object",
+        "properties": {
+          "BillOfMaterial": {
+            "type": "string",
+            "maxLength": 8
+          },
+          "BillOfMaterialCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "BOM category"
+          },
+          "BillOfMaterialVariant": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Alternative BOM"
+          },
+          "BillOfMaterialVersion": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "BOM Version"
+          },
+          "TechnicalObject": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "Plant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Plant"
+          },
+          "EngineeringChangeDocument": {
+            "type": "string",
+            "maxLength": 12,
+            "title": "Change Number"
+          },
+          "BillOfMaterialVariantUsage": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "BOM Usage"
+          },
+          "BillOfMaterialItemNodeNumber": {
+            "type": "string",
+            "maxLength": 8,
+            "title": "Item node",
+            "description": "BOM item node number"
+          },
+          "BillOfMaterialItemUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID item chge status",
+            "description": "Global identification of an item's change status"
+          },
+          "BOMItemInternalChangeCount": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Counter",
+            "description": "Internal counter"
+          },
+          "ValidityStartDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid From",
+            "description": "Valid-From Date"
+          },
+          "ValidityEndDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid to",
+            "description": "Valid-to date"
+          },
+          "ChgToEngineeringChgDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Change Number To"
+          },
+          "InheritedNodeNumberForBOMItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Item node",
+            "description": "Inherited node number of BOM item"
+          },
+          "BOMItemRecordCreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Date Record Created On"
+          },
+          "BOMItemCreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created by",
+            "description": "User who created record"
+          },
+          "BOMItemLastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "BOMItemLastChangedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Changed By",
+            "description": "Name of Person Who Changed Object"
+          },
+          "BillOfMaterialComponent": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Component",
+            "description": "BOM component"
+          },
+          "BillOfMaterialItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Item Category",
+            "description": "Item category (bill of material)"
+          },
+          "BillOfMaterialItemNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4
+          },
+          "BillOfMaterialItemUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Component UoM",
+            "description": "Component Unit of Measure"
+          },
+          "BillOfMaterialItemQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Component Quantity"
+          },
+          "IsAssembly": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Assembly",
+            "description": "Indicator: assembly"
+          },
+          "IsSubItem": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Sub-item indicator",
+            "description": "Indicator: sub-items exist"
+          },
+          "BOMItemSorter": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sort String"
+          },
+          "PurchasingGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Purchasing Group"
+          },
+          "Currency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "MaterialComponentPrice": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999.999,
+            "maximum": 99999999.999,
+            "example": "0",
+            "title": "Price"
+          },
+          "IdentifierBOMItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Item identification",
+            "description": "External identification of an item"
+          },
+          "MaterialPriceUnitQty": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Price unit"
+          },
+          "ComponentScrapInPercent": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-2,
+            "minimum": -999.99,
+            "maximum": 999.99,
+            "example": "0",
+            "title": "Component Scrap (%)",
+            "description": "Component Scrap in Percent"
+          },
+          "OperationScrapInPercent": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-2,
+            "minimum": -999.99,
+            "maximum": 999.99,
+            "example": "0",
+            "title": "Operation Scrap in %",
+            "description": "Operation Scrap"
+          },
+          "IsNetScrap": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Net Scrap Indicator"
+          },
+          "QuantityVariableSizeItem": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Qty of var-size item",
+            "description": "Quantity of variable-size item"
+          },
+          "FormulaKey": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Formula Key",
+            "description": "Formula Key for Variable-Size Items"
+          },
+          "ComponentDescription": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text",
+            "description": "BOM Item Text (Line 1)"
+          },
+          "BOMItemDescription": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text",
+            "description": "BOM Item Text (Line 1)"
+          },
+          "BOMItemText2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text 2",
+            "description": "BOM Item Text (Line 2)"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "DocumentType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Document Type"
+          },
+          "DocNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 25,
+            "title": "Document",
+            "description": "Document number"
+          },
+          "DocumentVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Document Version"
+          },
+          "DocumentPart": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Document Part"
+          },
+          "ClassNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Class",
+            "description": "Class number"
+          },
+          "ClassType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Class Type"
+          },
+          "ResultingItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Res. item category",
+            "description": "Resulting item category"
+          },
+          "DependencyObjectNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Assignment number",
+            "description": "Number of Object with Assigned Dependencies"
+          },
+          "ObjectType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Object Type",
+            "description": "Object type (BOM item)"
+          },
+          "IsClassificationRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "as selection cond.",
+            "description": "Indicator: classification as selection condition"
+          },
+          "IsBulkMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Bulk material",
+            "description": "Indicator: bulk material"
+          },
+          "BOMItemIsSparePart": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Spare Part Indicator",
+            "description": "Indicator: Spare Part"
+          },
+          "BOMItemIsSalesRelevant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Relevant to sales",
+            "description": "Indicator: item relevant to sales"
+          },
+          "IsProductionRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Production relevant",
+            "description": "Indicator: item relevant to production"
+          },
+          "BOMItemIsPlantMaintRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Plant maintenance",
+            "description": "Indicator: item relevant to plant maintenance"
+          },
+          "BOMItemIsCostingRelevant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Relevancy to costing",
+            "description": "Indicator for relevancy to costing"
+          },
+          "IsEngineeringRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Engineering/design",
+            "description": "Indicator: item relevant to engineering"
+          },
+          "SpecialProcurementType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Special Procurement",
+            "description": "Special Procurement Type for BOM Item"
+          },
+          "IsBOMRecursiveAllowed": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Recurs. allowed",
+            "description": "Indicator: recursiveness allowed"
+          },
+          "OperationLeadTimeOffset": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Oper. LT offset",
+            "description": "Lead-time offset for operation"
+          },
+          "OpsLeadTimeOffsetUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Operation LTO unit",
+            "description": "Unit for lead-time offset for operation"
+          },
+          "IsMaterialProvision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Mat. Provision Ind.",
+            "description": "Material Provision Indicator"
+          },
+          "BOMIsRecursive": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Recursive",
+            "description": "Indicator: BOM is recursive"
+          },
+          "DocumentIsCreatedByCAD": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "CAD Indicator"
+          },
+          "DistrKeyCompConsumption": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Distribution key",
+            "description": "Distribution key for component consumption"
+          },
+          "DeliveryDurationInDays": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Delivery time (days)",
+            "description": "Delivery time in days"
+          },
+          "Creditor": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "CostElement": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Cost element"
+          },
+          "Size1": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 1"
+          },
+          "Size2": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 2"
+          },
+          "Size3": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 3"
+          },
+          "UnitOfMeasureForSize1To3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Size unit",
+            "description": "Unit of measure for sizes 1 to 3"
+          },
+          "GoodsReceiptDuration": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "GR processing time",
+            "description": "Goods receipt processing time in days"
+          },
+          "PurchasingOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purch. Organization",
+            "description": "Purchasing Organization"
+          },
+          "RequiredComponent": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Required Component"
+          },
+          "MultipleSelectionAllowed": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Multiple Selection",
+            "description": "Multiple Selection Allowed"
+          },
+          "ProdOrderIssueLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Storage Location",
+            "description": "Issue Location for Production Order"
+          },
+          "MaterialIsCoProduct": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Co-product",
+            "description": "Indicator: co-product"
+          },
+          "ExplosionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Explosion type"
+          },
+          "AlternativeItemGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "AltItemGroup",
+            "description": "Alternative item: group"
+          },
+          "FollowUpGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Follow-up group"
+          },
+          "DiscontinuationGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Discont. group",
+            "description": "Discontinuation group"
+          },
+          "IsConfigurableBOM": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Selection indicator",
+            "description": "Selection indicator for configurable BOMs"
+          },
+          "ReferencePoint": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "Reference point",
+            "description": "Reference point for BOM transfer"
+          },
+          "LeadTimeOffset": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Lead-time offset"
+          },
+          "ProductionSupplyArea": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Prodn Supply Area",
+            "description": "Production Supply Area"
+          },
+          "IsDeleted": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Deletion Indicator"
+          },
+          "IsALE": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "ALE indicator"
+          },
+          "BillOfMaterialHeaderUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID hdr chge status",
+            "description": "Global identification of a BOM header change status"
+          },
+          "to_BillOfMaterial": {
+            "$ref": "#/components/schemas/cds_api_maintenancebom.MaintBOMHeader_Type"
+          }
+        },
+        "title": "Maintenance Bill Of Material Item"
+      },
+      "cds_api_maintenancebom.BOMItemType-create": {
+        "type": "object",
+        "properties": {
+          "BillOfMaterialItemUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID item chge status",
+            "description": "Global identification of an item's change status"
+          },
+          "BOMItemInternalChangeCount": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Counter",
+            "description": "Internal counter"
+          },
+          "ValidityStartDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid From",
+            "description": "Valid-From Date"
+          },
+          "ValidityEndDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid to",
+            "description": "Valid-to date"
+          },
+          "ChgToEngineeringChgDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Change Number To"
+          },
+          "InheritedNodeNumberForBOMItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Item node",
+            "description": "Inherited node number of BOM item"
+          },
+          "BOMItemRecordCreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Date Record Created On"
+          },
+          "BOMItemCreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created by",
+            "description": "User who created record"
+          },
+          "BOMItemLastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "BOMItemLastChangedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Changed By",
+            "description": "Name of Person Who Changed Object"
+          },
+          "BillOfMaterialComponent": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Component",
+            "description": "BOM component"
+          },
+          "BillOfMaterialItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Item Category",
+            "description": "Item category (bill of material)"
+          },
+          "BillOfMaterialItemNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4
+          },
+          "BillOfMaterialItemUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Component UoM",
+            "description": "Component Unit of Measure"
+          },
+          "BillOfMaterialItemQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Component Quantity"
+          },
+          "IsAssembly": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Assembly",
+            "description": "Indicator: assembly"
+          },
+          "IsSubItem": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Sub-item indicator",
+            "description": "Indicator: sub-items exist"
+          },
+          "BOMItemSorter": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sort String"
+          },
+          "PurchasingGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Purchasing Group"
+          },
+          "Currency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "MaterialComponentPrice": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999.999,
+            "maximum": 99999999.999,
+            "example": "0",
+            "title": "Price"
+          },
+          "IdentifierBOMItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Item identification",
+            "description": "External identification of an item"
+          },
+          "MaterialPriceUnitQty": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Price unit"
+          },
+          "ComponentScrapInPercent": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-2,
+            "minimum": -999.99,
+            "maximum": 999.99,
+            "example": "0",
+            "title": "Component Scrap (%)",
+            "description": "Component Scrap in Percent"
+          },
+          "OperationScrapInPercent": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-2,
+            "minimum": -999.99,
+            "maximum": 999.99,
+            "example": "0",
+            "title": "Operation Scrap in %",
+            "description": "Operation Scrap"
+          },
+          "IsNetScrap": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Net Scrap Indicator"
+          },
+          "QuantityVariableSizeItem": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Qty of var-size item",
+            "description": "Quantity of variable-size item"
+          },
+          "FormulaKey": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Formula Key",
+            "description": "Formula Key for Variable-Size Items"
+          },
+          "ComponentDescription": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text",
+            "description": "BOM Item Text (Line 1)"
+          },
+          "BOMItemDescription": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text",
+            "description": "BOM Item Text (Line 1)"
+          },
+          "BOMItemText2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text 2",
+            "description": "BOM Item Text (Line 2)"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "DocumentType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Document Type"
+          },
+          "DocNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 25,
+            "title": "Document",
+            "description": "Document number"
+          },
+          "DocumentVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Document Version"
+          },
+          "DocumentPart": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Document Part"
+          },
+          "ClassNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Class",
+            "description": "Class number"
+          },
+          "ClassType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Class Type"
+          },
+          "ResultingItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Res. item category",
+            "description": "Resulting item category"
+          },
+          "DependencyObjectNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Assignment number",
+            "description": "Number of Object with Assigned Dependencies"
+          },
+          "ObjectType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Object Type",
+            "description": "Object type (BOM item)"
+          },
+          "IsClassificationRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "as selection cond.",
+            "description": "Indicator: classification as selection condition"
+          },
+          "IsBulkMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Bulk material",
+            "description": "Indicator: bulk material"
+          },
+          "BOMItemIsSparePart": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Spare Part Indicator",
+            "description": "Indicator: Spare Part"
+          },
+          "BOMItemIsSalesRelevant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Relevant to sales",
+            "description": "Indicator: item relevant to sales"
+          },
+          "IsProductionRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Production relevant",
+            "description": "Indicator: item relevant to production"
+          },
+          "BOMItemIsPlantMaintRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Plant maintenance",
+            "description": "Indicator: item relevant to plant maintenance"
+          },
+          "BOMItemIsCostingRelevant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Relevancy to costing",
+            "description": "Indicator for relevancy to costing"
+          },
+          "IsEngineeringRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Engineering/design",
+            "description": "Indicator: item relevant to engineering"
+          },
+          "SpecialProcurementType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Special Procurement",
+            "description": "Special Procurement Type for BOM Item"
+          },
+          "IsBOMRecursiveAllowed": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Recurs. allowed",
+            "description": "Indicator: recursiveness allowed"
+          },
+          "OperationLeadTimeOffset": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Oper. LT offset",
+            "description": "Lead-time offset for operation"
+          },
+          "OpsLeadTimeOffsetUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Operation LTO unit",
+            "description": "Unit for lead-time offset for operation"
+          },
+          "IsMaterialProvision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Mat. Provision Ind.",
+            "description": "Material Provision Indicator"
+          },
+          "BOMIsRecursive": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Recursive",
+            "description": "Indicator: BOM is recursive"
+          },
+          "DocumentIsCreatedByCAD": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "CAD Indicator"
+          },
+          "DistrKeyCompConsumption": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Distribution key",
+            "description": "Distribution key for component consumption"
+          },
+          "DeliveryDurationInDays": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Delivery time (days)",
+            "description": "Delivery time in days"
+          },
+          "Creditor": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "CostElement": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Cost element"
+          },
+          "Size1": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 1"
+          },
+          "Size2": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 2"
+          },
+          "Size3": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 3"
+          },
+          "UnitOfMeasureForSize1To3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Size unit",
+            "description": "Unit of measure for sizes 1 to 3"
+          },
+          "GoodsReceiptDuration": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "GR processing time",
+            "description": "Goods receipt processing time in days"
+          },
+          "PurchasingOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purch. Organization",
+            "description": "Purchasing Organization"
+          },
+          "RequiredComponent": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Required Component"
+          },
+          "MultipleSelectionAllowed": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Multiple Selection",
+            "description": "Multiple Selection Allowed"
+          },
+          "ProdOrderIssueLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Storage Location",
+            "description": "Issue Location for Production Order"
+          },
+          "MaterialIsCoProduct": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Co-product",
+            "description": "Indicator: co-product"
+          },
+          "ExplosionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Explosion type"
+          },
+          "AlternativeItemGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "AltItemGroup",
+            "description": "Alternative item: group"
+          },
+          "FollowUpGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Follow-up group"
+          },
+          "DiscontinuationGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Discont. group",
+            "description": "Discontinuation group"
+          },
+          "IsConfigurableBOM": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Selection indicator",
+            "description": "Selection indicator for configurable BOMs"
+          },
+          "ReferencePoint": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "Reference point",
+            "description": "Reference point for BOM transfer"
+          },
+          "LeadTimeOffset": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Lead-time offset"
+          },
+          "ProductionSupplyArea": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Prodn Supply Area",
+            "description": "Production Supply Area"
+          },
+          "IsDeleted": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Deletion Indicator"
+          },
+          "IsALE": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "ALE indicator"
+          },
+          "BillOfMaterialHeaderUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID hdr chge status",
+            "description": "Global identification of a BOM header change status"
+          },
+          "to_BillOfMaterial": {
+            "$ref": "#/components/schemas/cds_api_maintenancebom.MaintBOMHeader_Type-create"
+          }
+        },
+        "title": "Maintenance Bill Of Material Item (for create)"
+      },
+      "cds_api_maintenancebom.BOMItemType-update": {
+        "type": "object",
+        "properties": {
+          "BillOfMaterialItemUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID item chge status",
+            "description": "Global identification of an item's change status"
+          },
+          "BOMItemInternalChangeCount": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Counter",
+            "description": "Internal counter"
+          },
+          "ValidityStartDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid From",
+            "description": "Valid-From Date"
+          },
+          "ValidityEndDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid to",
+            "description": "Valid-to date"
+          },
+          "ChgToEngineeringChgDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Change Number To"
+          },
+          "InheritedNodeNumberForBOMItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Item node",
+            "description": "Inherited node number of BOM item"
+          },
+          "BOMItemRecordCreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Date Record Created On"
+          },
+          "BOMItemCreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created by",
+            "description": "User who created record"
+          },
+          "BOMItemLastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "BOMItemLastChangedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Changed By",
+            "description": "Name of Person Who Changed Object"
+          },
+          "BillOfMaterialComponent": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Component",
+            "description": "BOM component"
+          },
+          "BillOfMaterialItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Item Category",
+            "description": "Item category (bill of material)"
+          },
+          "BillOfMaterialItemNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4
+          },
+          "BillOfMaterialItemUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Component UoM",
+            "description": "Component Unit of Measure"
+          },
+          "BillOfMaterialItemQuantity": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Component Quantity"
+          },
+          "IsAssembly": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Assembly",
+            "description": "Indicator: assembly"
+          },
+          "IsSubItem": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Sub-item indicator",
+            "description": "Indicator: sub-items exist"
+          },
+          "BOMItemSorter": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Sort String"
+          },
+          "PurchasingGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Purchasing Group"
+          },
+          "Currency": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 5,
+            "title": "Currency",
+            "description": "Currency Key"
+          },
+          "MaterialComponentPrice": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -99999999.999,
+            "maximum": 99999999.999,
+            "example": "0",
+            "title": "Price"
+          },
+          "IdentifierBOMItem": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Item identification",
+            "description": "External identification of an item"
+          },
+          "MaterialPriceUnitQty": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -99999,
+            "maximum": 99999,
+            "example": "0",
+            "title": "Price unit"
+          },
+          "ComponentScrapInPercent": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-2,
+            "minimum": -999.99,
+            "maximum": 999.99,
+            "example": "0",
+            "title": "Component Scrap (%)",
+            "description": "Component Scrap in Percent"
+          },
+          "OperationScrapInPercent": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-2,
+            "minimum": -999.99,
+            "maximum": 999.99,
+            "example": "0",
+            "title": "Operation Scrap in %",
+            "description": "Operation Scrap"
+          },
+          "IsNetScrap": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Net Scrap Indicator"
+          },
+          "QuantityVariableSizeItem": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Qty of var-size item",
+            "description": "Quantity of variable-size item"
+          },
+          "FormulaKey": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Formula Key",
+            "description": "Formula Key for Variable-Size Items"
+          },
+          "ComponentDescription": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text",
+            "description": "BOM Item Text (Line 1)"
+          },
+          "BOMItemDescription": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text",
+            "description": "BOM Item Text (Line 1)"
+          },
+          "BOMItemText2": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Item Text 2",
+            "description": "BOM Item Text (Line 2)"
+          },
+          "MaterialGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 9,
+            "title": "Material Group"
+          },
+          "DocumentType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Document Type"
+          },
+          "DocNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 25,
+            "title": "Document",
+            "description": "Document number"
+          },
+          "DocumentVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Document Version"
+          },
+          "DocumentPart": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Document Part"
+          },
+          "ClassNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Class",
+            "description": "Class number"
+          },
+          "ClassType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Class Type"
+          },
+          "ResultingItemCategory": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Res. item category",
+            "description": "Resulting item category"
+          },
+          "DependencyObjectNumber": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "Assignment number",
+            "description": "Number of Object with Assigned Dependencies"
+          },
+          "ObjectType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Object Type",
+            "description": "Object type (BOM item)"
+          },
+          "IsClassificationRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "as selection cond.",
+            "description": "Indicator: classification as selection condition"
+          },
+          "IsBulkMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Bulk material",
+            "description": "Indicator: bulk material"
+          },
+          "BOMItemIsSparePart": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Spare Part Indicator",
+            "description": "Indicator: Spare Part"
+          },
+          "BOMItemIsSalesRelevant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Relevant to sales",
+            "description": "Indicator: item relevant to sales"
+          },
+          "IsProductionRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Production relevant",
+            "description": "Indicator: item relevant to production"
+          },
+          "BOMItemIsPlantMaintRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Plant maintenance",
+            "description": "Indicator: item relevant to plant maintenance"
+          },
+          "BOMItemIsCostingRelevant": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Relevancy to costing",
+            "description": "Indicator for relevancy to costing"
+          },
+          "IsEngineeringRelevant": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Engineering/design",
+            "description": "Indicator: item relevant to engineering"
+          },
+          "SpecialProcurementType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Special Procurement",
+            "description": "Special Procurement Type for BOM Item"
+          },
+          "IsBOMRecursiveAllowed": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Recurs. allowed",
+            "description": "Indicator: recursiveness allowed"
+          },
+          "OperationLeadTimeOffset": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Oper. LT offset",
+            "description": "Lead-time offset for operation"
+          },
+          "OpsLeadTimeOffsetUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Operation LTO unit",
+            "description": "Unit for lead-time offset for operation"
+          },
+          "IsMaterialProvision": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Mat. Provision Ind.",
+            "description": "Material Provision Indicator"
+          },
+          "BOMIsRecursive": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Recursive",
+            "description": "Indicator: BOM is recursive"
+          },
+          "DocumentIsCreatedByCAD": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "CAD Indicator"
+          },
+          "DistrKeyCompConsumption": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Distribution key",
+            "description": "Distribution key for component consumption"
+          },
+          "DeliveryDurationInDays": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Delivery time (days)",
+            "description": "Delivery time in days"
+          },
+          "Creditor": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Supplier",
+            "description": "Account Number of Supplier"
+          },
+          "CostElement": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Cost element"
+          },
+          "Size1": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 1"
+          },
+          "Size2": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 2"
+          },
+          "Size3": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Size 3"
+          },
+          "UnitOfMeasureForSize1To3": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Size unit",
+            "description": "Unit of measure for sizes 1 to 3"
+          },
+          "GoodsReceiptDuration": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "GR processing time",
+            "description": "Goods receipt processing time in days"
+          },
+          "PurchasingOrganization": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Purch. Organization",
+            "description": "Purchasing Organization"
+          },
+          "RequiredComponent": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Required Component"
+          },
+          "MultipleSelectionAllowed": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Multiple Selection",
+            "description": "Multiple Selection Allowed"
+          },
+          "ProdOrderIssueLocation": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Storage Location",
+            "description": "Issue Location for Production Order"
+          },
+          "MaterialIsCoProduct": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Co-product",
+            "description": "Indicator: co-product"
+          },
+          "ExplosionType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Explosion type"
+          },
+          "AlternativeItemGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "AltItemGroup",
+            "description": "Alternative item: group"
+          },
+          "FollowUpGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Follow-up group"
+          },
+          "DiscontinuationGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Discont. group",
+            "description": "Discontinuation group"
+          },
+          "IsConfigurableBOM": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Selection indicator",
+            "description": "Selection indicator for configurable BOMs"
+          },
+          "ReferencePoint": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 20,
+            "title": "Reference point",
+            "description": "Reference point for BOM transfer"
+          },
+          "LeadTimeOffset": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1,
+            "minimum": -999,
+            "maximum": 999,
+            "example": "0",
+            "title": "Lead-time offset"
+          },
+          "ProductionSupplyArea": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 10,
+            "title": "Prodn Supply Area",
+            "description": "Production Supply Area"
+          },
+          "IsDeleted": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Deletion Indicator"
+          },
+          "IsALE": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "ALE indicator"
+          },
+          "BillOfMaterialHeaderUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID hdr chge status",
+            "description": "Global identification of a BOM header change status"
+          }
+        },
+        "title": "Maintenance Bill Of Material Item (for update)"
+      },
+      "cds_api_maintenancebom.MaintBOMHeader_Type": {
+        "type": "object",
+        "properties": {
+          "BillOfMaterial": {
+            "type": "string",
+            "maxLength": 8
+          },
+          "BillOfMaterialCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "BOM category"
+          },
+          "BillOfMaterialVariant": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Alternative BOM"
+          },
+          "BillOfMaterialVersion": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "BOM Version"
+          },
+          "TechnicalObject": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "Plant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Plant"
+          },
+          "EngineeringChangeDocument": {
+            "type": "string",
+            "maxLength": 12,
+            "title": "Change Number"
+          },
+          "BillOfMaterialVariantUsage": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "BOM Usage"
+          },
+          "BillOfMaterialHeaderUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID hdr chge status",
+            "description": "Global identification of a BOM header change status"
+          },
+          "IsMultipleBOMAlt": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Alt.det. mult. BOM",
+            "description": "Indicator: alternative determination for multiple BOMs"
+          },
+          "BOMHeaderInternalChangeCount": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Counter",
+            "description": "Internal counter"
+          },
+          "BOMUsagePriority": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Selection priority",
+            "description": "CIM priority for selection ID"
+          },
+          "BillOfMaterialAuthsnGrp": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Authorization group",
+            "description": "Authorization group for bills of material"
+          },
+          "BOMVersionStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "BOM Version Status"
+          },
+          "IsVersionBillOfMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Versioning Relevant",
+            "description": "Indicator: Relevant for Versioning"
+          },
+          "IsLatestBOMVersion": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Latest Rel Version",
+            "description": "Indicator: Latest Released BOM Version"
+          },
+          "IsConfiguredMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Configurable BOM",
+            "description": "Indicator: configurable BOM"
+          },
+          "BOMTechnicalType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Technical type"
+          },
+          "BOMGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "BOM group"
+          },
+          "BOMHeaderText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "BOM Description"
+          },
+          "BOMAlternativeText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Alternative Text",
+            "description": "Alternative BOM Text"
+          },
+          "BillOfMaterialStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "BOM Status",
+            "description": "Bill of Material Status"
+          },
+          "HeaderValidityStartDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid From",
+            "description": "Valid-From Date"
+          },
+          "HeaderValidityEndDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid to",
+            "description": "Valid-to date"
+          },
+          "ChgToEngineeringChgDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Change Number To"
+          },
+          "IsMarkedForDeletion": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Deletion Indicator"
+          },
+          "IsALE": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "ALE indicator"
+          },
+          "BOMHeaderBaseUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Base Unit of Measure",
+            "description": "Base Unit of Measure for BOM"
+          },
+          "BOMHeaderQuantityInBaseUnit": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Base quantity"
+          },
+          "RecordCreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Date Record Created On"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "CreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created by",
+            "description": "User who created record"
+          },
+          "LastChangedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Changed By",
+            "description": "Name of Person Who Changed Object"
+          },
+          "BOMIsToBeDeleted": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Handling Del. Flag",
+            "description": "Handling Deletion Flag During BOM Explosion"
+          },
+          "DocumentIsCreatedByCAD": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "CAD Indicator"
+          },
+          "LaboratoryOrDesignOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Lab/Office",
+            "description": "Laboratory/design office"
+          },
+          "SelectedBillOfMaterialVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4
+          },
+          "to_MaintBillOfMaterialItem": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType"
+                }
+              }
+            }
+          }
+        },
+        "title": "Maintenance Bill Of Material"
+      },
+      "cds_api_maintenancebom.MaintBOMHeader_Type-create": {
+        "type": "object",
+        "properties": {
+          "BillOfMaterial": {
+            "type": "string",
+            "maxLength": 8
+          },
+          "BillOfMaterialCategory": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "BOM category"
+          },
+          "BillOfMaterialVariant": {
+            "type": "string",
+            "maxLength": 2,
+            "title": "Alternative BOM"
+          },
+          "BillOfMaterialVersion": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "BOM Version"
+          },
+          "TechnicalObject": {
+            "type": "string",
+            "maxLength": 40,
+            "title": "Material",
+            "description": "Material Number"
+          },
+          "Plant": {
+            "type": "string",
+            "maxLength": 4,
+            "title": "Plant"
+          },
+          "EngineeringChangeDocument": {
+            "type": "string",
+            "maxLength": 12,
+            "title": "Change Number"
+          },
+          "BillOfMaterialVariantUsage": {
+            "type": "string",
+            "maxLength": 1,
+            "title": "BOM Usage"
+          },
+          "BillOfMaterialHeaderUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID hdr chge status",
+            "description": "Global identification of a BOM header change status"
+          },
+          "IsMultipleBOMAlt": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Alt.det. mult. BOM",
+            "description": "Indicator: alternative determination for multiple BOMs"
+          },
+          "BOMHeaderInternalChangeCount": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Counter",
+            "description": "Internal counter"
+          },
+          "BOMUsagePriority": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Selection priority",
+            "description": "CIM priority for selection ID"
+          },
+          "BillOfMaterialAuthsnGrp": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Authorization group",
+            "description": "Authorization group for bills of material"
+          },
+          "BOMVersionStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "BOM Version Status"
+          },
+          "IsVersionBillOfMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Versioning Relevant",
+            "description": "Indicator: Relevant for Versioning"
+          },
+          "IsLatestBOMVersion": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Latest Rel Version",
+            "description": "Indicator: Latest Released BOM Version"
+          },
+          "IsConfiguredMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Configurable BOM",
+            "description": "Indicator: configurable BOM"
+          },
+          "BOMTechnicalType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Technical type"
+          },
+          "BOMGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "BOM group"
+          },
+          "BOMHeaderText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "BOM Description"
+          },
+          "BOMAlternativeText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Alternative Text",
+            "description": "Alternative BOM Text"
+          },
+          "BillOfMaterialStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "BOM Status",
+            "description": "Bill of Material Status"
+          },
+          "HeaderValidityStartDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid From",
+            "description": "Valid-From Date"
+          },
+          "HeaderValidityEndDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid to",
+            "description": "Valid-to date"
+          },
+          "ChgToEngineeringChgDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Change Number To"
+          },
+          "IsMarkedForDeletion": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Deletion Indicator"
+          },
+          "IsALE": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "ALE indicator"
+          },
+          "BOMHeaderBaseUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Base Unit of Measure",
+            "description": "Base Unit of Measure for BOM"
+          },
+          "BOMHeaderQuantityInBaseUnit": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Base quantity"
+          },
+          "RecordCreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Date Record Created On"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "CreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created by",
+            "description": "User who created record"
+          },
+          "LastChangedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Changed By",
+            "description": "Name of Person Who Changed Object"
+          },
+          "BOMIsToBeDeleted": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Handling Del. Flag",
+            "description": "Handling Deletion Flag During BOM Explosion"
+          },
+          "DocumentIsCreatedByCAD": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "CAD Indicator"
+          },
+          "LaboratoryOrDesignOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Lab/Office",
+            "description": "Laboratory/design office"
+          },
+          "SelectedBillOfMaterialVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4
+          },
+          "to_MaintBillOfMaterialItem": {
+            "type": "object",
+            "properties": {
+              "results": {
+                "type": "array",
+                "items": {
+                  "$ref": "#/components/schemas/cds_api_maintenancebom.BOMItemType-create"
+                }
+              }
+            }
+          }
+        },
+        "required": [
+          "BillOfMaterial",
+          "BillOfMaterialCategory",
+          "BillOfMaterialVariant",
+          "BillOfMaterialVersion",
+          "TechnicalObject",
+          "Plant",
+          "EngineeringChangeDocument",
+          "BillOfMaterialVariantUsage"
+        ],
+        "title": "Maintenance Bill Of Material (for create)"
+      },
+      "cds_api_maintenancebom.MaintBOMHeader_Type-update": {
+        "type": "object",
+        "properties": {
+          "BillOfMaterialHeaderUUID": {
+            "type": "string",
+            "nullable": true,
+            "format": "uuid",
+            "example": "01234567-89ab-cdef-0123-456789abcdef",
+            "title": "ID hdr chge status",
+            "description": "Global identification of a BOM header change status"
+          },
+          "IsMultipleBOMAlt": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Alt.det. mult. BOM",
+            "description": "Indicator: alternative determination for multiple BOMs"
+          },
+          "BOMHeaderInternalChangeCount": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 8,
+            "title": "Counter",
+            "description": "Internal counter"
+          },
+          "BOMUsagePriority": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "Selection priority",
+            "description": "CIM priority for selection ID"
+          },
+          "BillOfMaterialAuthsnGrp": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4,
+            "title": "Authorization group",
+            "description": "Authorization group for bills of material"
+          },
+          "BOMVersionStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "BOM Version Status"
+          },
+          "IsVersionBillOfMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Versioning Relevant",
+            "description": "Indicator: Relevant for Versioning"
+          },
+          "IsLatestBOMVersion": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Latest Rel Version",
+            "description": "Indicator: Latest Released BOM Version"
+          },
+          "IsConfiguredMaterial": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Configurable BOM",
+            "description": "Indicator: configurable BOM"
+          },
+          "BOMTechnicalType": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Technical type"
+          },
+          "BOMGroup": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 18,
+            "title": "BOM group"
+          },
+          "BOMHeaderText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "BOM Description"
+          },
+          "BOMAlternativeText": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 40,
+            "title": "Alternative Text",
+            "description": "Alternative BOM Text"
+          },
+          "BillOfMaterialStatus": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 2,
+            "title": "BOM Status",
+            "description": "Bill of Material Status"
+          },
+          "HeaderValidityStartDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid From",
+            "description": "Valid-From Date"
+          },
+          "HeaderValidityEndDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Valid to",
+            "description": "Valid-to date"
+          },
+          "ChgToEngineeringChgDocument": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Change Number To"
+          },
+          "IsMarkedForDeletion": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "Deletion Indicator"
+          },
+          "IsALE": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "ALE indicator"
+          },
+          "BOMHeaderBaseUnit": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Base Unit of Measure",
+            "description": "Base Unit of Measure for BOM"
+          },
+          "BOMHeaderQuantityInBaseUnit": {
+            "type": "string",
+            "nullable": true,
+            "format": "decimal",
+            "multipleOf": 1.0e-3,
+            "minimum": -9999999999.999,
+            "maximum": 9999999999.999,
+            "example": "0",
+            "title": "Base quantity"
+          },
+          "RecordCreationDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Created On",
+            "description": "Date Record Created On"
+          },
+          "LastChangeDate": {
+            "type": "string",
+            "nullable": true,
+            "example": "/Date(1492041600000)/",
+            "title": "Changed On",
+            "description": "Last Changed On"
+          },
+          "CreatedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Created by",
+            "description": "User who created record"
+          },
+          "LastChangedByUser": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 12,
+            "title": "Changed By",
+            "description": "Name of Person Who Changed Object"
+          },
+          "BOMIsToBeDeleted": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 1,
+            "title": "Handling Del. Flag",
+            "description": "Handling Deletion Flag During BOM Explosion"
+          },
+          "DocumentIsCreatedByCAD": {
+            "type": "boolean",
+            "nullable": true,
+            "title": "CAD Indicator"
+          },
+          "LaboratoryOrDesignOffice": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 3,
+            "title": "Lab/Office",
+            "description": "Laboratory/design office"
+          },
+          "SelectedBillOfMaterialVersion": {
+            "type": "string",
+            "nullable": true,
+            "maxLength": 4
+          }
+        },
+        "title": "Maintenance Bill Of Material (for update)"
+      },
+      "count": {
+        "type": "string",
+        "description": "The number of entities in the collection. Available when using the [$inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67) query option."
+      },
+      "error": {
+        "type": "object",
+        "required": [
+          "error"
+        ],
+        "properties": {
+          "error": {
+            "type": "object",
+            "required": [
+              "code",
+              "message"
+            ],
+            "properties": {
+              "code": {
+                "type": "string"
+              },
+              "message": {
+                "type": "object",
+                "required": [
+                  "lang",
+                  "value"
+                ],
+                "properties": {
+                  "lang": {
+                    "type": "string"
+                  },
+                  "value": {
+                    "type": "string"
+                  }
+                }
+              },
+              "innererror": {
+                "type": "object",
+                "description": "The structure of this object is service-specific"
+              }
+            }
+          }
+        }
+      }
+    },
+    "parameters": {
+      "top": {
+        "name": "$top",
+        "in": "query",
+        "description": "Show only the first n items, see [Paging - Top](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=66)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        },
+        "example": 50
+      },
+      "skip": {
+        "name": "$skip",
+        "in": "query",
+        "description": "Skip the first n items, see [Paging - Skip](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=65)",
+        "schema": {
+          "type": "integer",
+          "minimum": 0
+        }
+      },
+      "count": {
+        "name": "$inlinecount",
+        "in": "query",
+        "description": "Include count of items, see [Inlinecount](https://help.sap.com/doc/5890d27be418427993fafa6722cdc03b/Cloud/en-US/OdataV2.pdf#page=67)",
+        "schema": {
+          "type": "string",
+          "enum": [
+            "allpages",
+            "none"
+          ]
+        }
+      }
+    },
+    "responses": {
+      "error": {
+        "description": "Error",
+        "content": {
+          "application/json": {
+            "schema": {
+              "$ref": "#/components/schemas/error"
+            }
+          }
+        }
+      }
+    }
+  }
+}
