@@ -26,17 +26,17 @@
 			"BOMHeaderText": "Manual Isolation Valve",
 			"BOMAlternativeText": "",
 			"BillOfMaterialStatus": "1",
-			"HeaderValidityStartDate": "/Date(1466985600000)/",
-			"HeaderValidityEndDate": "/Date(253402214400000)/",
+			"HeaderValidityStartDate": "2016-06-27T09:00:00+09:00",
+			"HeaderValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"ChgToEngineeringChgDocument": "",
 			"IsMarkedForDeletion": false,
 			"BOMHeaderBaseUnit": "PC",
 			"BOMHeaderQuantityInBaseUnit": "1",
-			"RecordCreationDate": "/Date(1466985600000)/",
+			"RecordCreationDate": "2016-06-27T09:00:00+09:00",
 			"LastChangeDate": "",
 			"BOMIsToBeDeleted": "",
 			"to_MaintBillOfMaterialItem": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MAINTENANCEBOM/BOMHeader(BillOfMaterial='00000001',BillOfMaterialCategory='E',BillOfMaterialVariant='1',BillOfMaterialVersion='',TechnicalObject='210100091',Plant='DE10',EngineeringChangeDocument='',BillOfMaterialVariantUsage='4')/to_MaintBillOfMaterialItem"
 		}
 	],
-	"time": "2022-01-06T22:19:35.167882+09:00"
+	"time": "2022-01-28T17:07:44+09:00"
 }

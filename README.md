@@ -115,9 +115,9 @@ func (c *SAPAPICaller) AsyncGetMaintenanceBillOfMaterial(technicalObject, plant,
 ```
 
 ## Output  
-本マイクロサービスでは、[golang-logging-library](https://github.com/latonaio/golang-logging-library) により、以下のようなデータがJSON形式で出力されます。  
+本マイクロサービスでは、[golang-logging-library-for-sap](https://github.com/latonaio/golang-logging-library-for-sap) により、以下のようなデータがJSON形式で出力されます。  
 以下の sample.json の例は、SAP 保全部品表  の ヘッダ が取得された結果の JSON の例です。  
-以下の項目のうち、"BillOfMaterial" ～ "to_MaintBillOfMaterialItem" は、/SAP_API_Output_Formatter/type.go 内 の Type Header {} による出力結果です。"cursor" ～ "time"は、golang-logging-library による 定型フォーマットの出力結果です。  
+以下の項目のうち、"BillOfMaterial" ～ "to_MaintBillOfMaterialItem" は、/SAP_API_Output_Formatter/type.go 内 の Type Header {} による出力結果です。"cursor" ～ "time"は、golang-logging-library-for-sap による 定型フォーマットの出力結果です。  
 
 ```
 {
@@ -148,18 +148,19 @@ func (c *SAPAPICaller) AsyncGetMaintenanceBillOfMaterial(technicalObject, plant,
 			"BOMHeaderText": "Manual Isolation Valve",
 			"BOMAlternativeText": "",
 			"BillOfMaterialStatus": "1",
-			"HeaderValidityStartDate": "/Date(1466985600000)/",
-			"HeaderValidityEndDate": "/Date(253402214400000)/",
+			"HeaderValidityStartDate": "2016-06-27T09:00:00+09:00",
+			"HeaderValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"ChgToEngineeringChgDocument": "",
 			"IsMarkedForDeletion": false,
 			"BOMHeaderBaseUnit": "PC",
 			"BOMHeaderQuantityInBaseUnit": "1",
-			"RecordCreationDate": "/Date(1466985600000)/",
+			"RecordCreationDate": "2016-06-27T09:00:00+09:00",
 			"LastChangeDate": "",
 			"BOMIsToBeDeleted": "",
 			"to_MaintBillOfMaterialItem": "https://sandbox.api.sap.com/s4hanacloud/sap/opu/odata/sap/API_MAINTENANCEBOM/BOMHeader(BillOfMaterial='00000001',BillOfMaterialCategory='E',BillOfMaterialVariant='1',BillOfMaterialVersion='',TechnicalObject='210100091',Plant='DE10',EngineeringChangeDocument='',BillOfMaterialVariantUsage='4')/to_MaintBillOfMaterialItem"
 		}
 	],
-	"time": "2022-01-06T22:04:09.974605+09:00"
+	"time": "2022-01-28T17:05:29+09:00"
 }
+
 ```

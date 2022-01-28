@@ -15,11 +15,11 @@
 			"BillOfMaterialItemNodeNumber": "1",
 			"BillOfMaterialItemUUID": "00163e19-8846-1ee6-9398-0e3ac466d6d6",
 			"BOMItemInternalChangeCount": "2",
-			"ValidityStartDate": "/Date(1468800000000)/",
-			"ValidityEndDate": "/Date(253402214400000)/",
+			"ValidityStartDate": "2016-07-18T09:00:00+09:00",
+			"ValidityEndDate": "9999-12-31T09:00:00+09:00",
 			"ChgToEngineeringChgDocument": "",
 			"InheritedNodeNumberForBOMItem": "1",
-			"BOMItemRecordCreationDate": "/Date(1468800000000)/",
+			"BOMItemRecordCreationDate": "2016-07-18T09:00:00+09:00",
 			"BOMItemLastChangeDate": "",
 			"BillOfMaterialComponent": "SP006",
 			"BillOfMaterialItemCategory": "L",
@@ -93,5 +93,5 @@
 			"BillOfMaterialHeaderUUID": "00163e19-8846-1ed6-8f85-6c999d39c7b1"
 		}
 	],
-	"time": "2022-01-06T22:26:28.02461+09:00"
+	"time": "2022-01-28T17:06:22+09:00"
 }
